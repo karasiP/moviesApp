@@ -1,20 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
-  @Input()
+export class CartComponent implements OnInit{
+  
+  movies 
 
-  movieArray: any []
-  movie: Object;
-  public cart = [];
+  constructor(private cartService: CartService) {   }
 
-  seletedMovies(title){
-    this.cart.push(title)
-    alert(title + ' was add to cart ');
-    
+  ngOnInit() {
+    this.movies = this.cartService.getCart()
   }
+
+  onDelete(){
+    this.cartService.clearCart();
+    alert('Clear Cart Success');
+  }
+
 }

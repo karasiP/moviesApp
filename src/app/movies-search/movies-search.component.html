@@ -39,3 +39,9 @@
 		<movies-card [movie]="movie"></movies-card>
 	</div>
 </div>
+<h3 class="text-white">Now Playing Movies</h3>
+<div class="row is-flex">
+	<div class="col-sm-3" *ngFor="let movie of nowPlayingList; let i = index;">
+		<movies-card [movie]="movie"></movies-card>
+	</div>
+</div>

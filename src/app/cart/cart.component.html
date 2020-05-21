@@ -10,6 +10,14 @@
 </nav>
 <br>
 <br>
-<ul>
-  <li *ngFor="let product of cart">{{product}}</li>
-</ul>
+
+<div style="margin:0px 0px">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let movie of movies">
+      {{movie}}
+      <span class="hover-cursor text-danger pull-right" (click)="onDelete()">
+        <i class="fa fa-trash-o fa-lg"></i>
+      </span>
+    </li>
+    </ul>
+  </div>

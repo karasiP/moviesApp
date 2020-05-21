@@ -11,6 +11,7 @@ export class MoviesSearchComponent implements OnInit {
   popularList: Array<Object>;
   theatersList: Array<Object>;
   topRatedList: Array<Object>;
+  nowPlayingList: Array<object>;
   searchRes: Array<Object>;
   searchStr: string;
 
@@ -23,6 +24,9 @@ export class MoviesSearchComponent implements OnInit {
     });
     this.moviseService.getTopRatedMovies().subscribe(res => {
       this.topRatedList = res.results;
+    });
+    this.moviseService.getNowPlayingMovies().subscribe(res => {
+      this.nowPlayingList = res.results;
     });
   }
 
