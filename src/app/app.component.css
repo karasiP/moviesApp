@@ -1,0 +1,22 @@
+body {
+    background: rgb(26, 26, 26);
+    font-family: Kanit, sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    float: center;
+}
+
+.title {
+    color: #ec3636;
+    font-family: cursive;
+    font-size: 3em;
+    text-align: center;
+  }
+
+.container{
+    background-color: rgb(243, 167, 105);
+    margin-top: 0px;
+    height: 200px;
+    
+}

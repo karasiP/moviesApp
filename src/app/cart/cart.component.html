@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="title" href="#" >My Cart</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<a routerLink="/movies/{{movie.id}}" title="{{movie.title}}" class="text-dark">{{movie.title}}</a>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngIf="movie.title">
+    {{movie.title}}
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">{{movie.title}}</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="title" href="#" >I Movies</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/cart"><i class="fa fa-shopping-basket"></i>ตะกร้าของฉัน</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="searchMovies()"> <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" (click)="searchMovies()"><i class ="fa fa-search"></i></button>
+      </span>
+    </form>
+  </div>
+</nav>
+<br>
+<br>
+
+<div *ngIf="searchRes">
+	<h3 class="text-white">Search Results</h3>
+	<div class="row is-flex">
+		<div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of searchRes; let i = index;">
+			<movies-card [movie]="movie"></movies-card>
+		</div>
+	</div>
+</div>
+<h3 class="text-white">Top Rated Movies</h3>
+<div class="row is-flex">
+	<div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedList; let i = index;">
+		<movies-card [movie]="movie"></movies-card>
+	</div>
+</div>
+<h3 class="text-white">Popular Movies</h3>
+<div class="row is-flex">
+	<div class="col-sm-3" *ngFor="let movie of popularList; let i = index;">
+		<movies-card [movie]="movie"></movies-card>
+	</div>
+</div>
