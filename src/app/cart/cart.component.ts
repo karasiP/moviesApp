@@ -10,5 +10,11 @@ export class CartComponent {
 
   movieArray: any []
   movie: Object;
+  public cart = [];
 
+  seletedMovies(title){
+    this.cart.push(title)
+    alert(title + ' was add to cart ');
+    
+  }
 }

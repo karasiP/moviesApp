@@ -9,15 +9,12 @@ export class MoviesCardComponent {
 
   @Input()
   movie: Object;
-  recentMovie = "None"
   public cart = [];
 
   
   seletedMovies(title){
-    this.recentMovie = title;
     this.cart.push(title)
     alert(title + ' was add to cart ');
-    
   }
 
 }

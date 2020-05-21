@@ -7,13 +7,11 @@
     </h4>
     <p style="color: grey;"><strong ></strong>Release Date:{{movie.release_date}}</p>
     <p>
-    <!--  <a routerLink="/movies/{{movie.id}}">View details &raquo;</a>-->
       <small class="label label-success pull-right" *ngIf="movie.vote_average" style="background-color:rgb(255, 208, 0); color: white;">
         {{movie.vote_average}}
         <i class="fa fa-star" style="color:white;"></i>
       </small>
-      <a routerLink= "/cart" title="{{movie.title}}" (click)="seletedMovies(movie.title)"><i class="fa fa-shopping-basket" ></i>หยิบใส่ตะกร้า</a>
-     
+      <button *ngIf="movie.title" (click)="seletedMovies(movie.title)"><i class="fa fa-shopping-basket" ></i>หยิบใส่ตะกร้า</button> 
     </p>
   </div>
 </div>

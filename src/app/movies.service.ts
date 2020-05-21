@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Jsonp, URLSearchParams} from '@angular/http';
 import 'rxjs/Rx';
 
+
 @Injectable()
 export class MoviesService {
   apikey: string;
