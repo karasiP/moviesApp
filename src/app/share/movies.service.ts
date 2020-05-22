@@ -43,6 +43,15 @@ export class MoviesService {
       })
   }
 
+  getNowPlayingMovies(){
+    var search = new URLSearchParams();
+    search.set('api_key',this.apikey);
+    return this.jsonp.get('https://api.themoviedb.org/3/movie/now_playing?callback=JSONP_CALLBACK', {search})
+    .map(res => {
+      return res.json();
+    })
+  }
+
   searchMovies(searchStr: string) {
     var search = new URLSearchParams();
     search.set('sort_by','popularity.desc');
@@ -141,15 +150,6 @@ export class MoviesService {
       .map(res => {
         return res.json();
       })
-  }
-
-  getNowPlayingMovies(){
-    var search = new URLSearchParams();
-    search.set('api_key',this.apikey);
-    return this.jsonp.get('https://api.themoviedb.org/3/tv/top_rated?callback=JSONP_CALLBACK', {search})
-    .map(res => {
-      return res.json();
-    })
   }
 
   getSerieDetails(id:string) {
