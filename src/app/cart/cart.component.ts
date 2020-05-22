@@ -23,6 +23,7 @@ export class CartComponent implements OnInit{
   onDelete(){
     this.cartService.clearCart();
     alert('Clear Cart Success');
+    this.movies = this.cartService.getCart()
   }
 
   countTime(){

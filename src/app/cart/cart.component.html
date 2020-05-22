@@ -14,7 +14,7 @@
 <div calss="cart" style="margin:0px 0px">
   <ul class="list-group list-group-flush">
     <li class="list-group-item" *ngFor="let movie of movies">
-      {{movie}}
+      {{movie.title}} {{movie.price}}
     </li>
     </ul>
    <button routerLink="/cart" (click)="onDelete()">clear My Cart</button> 
