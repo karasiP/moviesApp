@@ -18,7 +18,7 @@
     </li>
     </ul>
    <button routerLink="/cart" (click)="onDelete()">clear My Cart</button> 
-   <button type="button" data-toggle="modal" data-target="#exampleModalCenter">สั่งซื้อสินค้า</button>
+   <button type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="countDown()">สั่งซื้อสินค้า</button>
 </div>
 
 
@@ -32,6 +32,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+     
       <div class="modal-body">
         <p><strong>ชื่อบัญชี : นางสาว มานี มีนา</strong></p>
         <br>
@@ -40,7 +41,9 @@
         <img src="https://www.img.in.th/images/ce444da317592a7646957bdd02bcfd08.jpg" width="100" height="100" />
         <strong>เลขที่่บัญชี : 222-234561-6</strong>
       </div>
+       
       <div class="modal-footer">
+        <p>โปรดโอนเงินภายใน {{counter$ | async}} วินาที</p>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
