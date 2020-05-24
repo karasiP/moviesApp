@@ -14,19 +14,24 @@ export class CartComponent implements OnInit{
   movies 
   counter$: Observable<number>;
   count = 60;
-  discount 
+  summary
+
   constructor(private cartService: CartService) {   
     
   }
   ngOnInit() {
     this.movies = this.cartService.getCart()
-    this.discount = this.cartService.calculatePrice(this.movies);
+    this.summary = this.cartService.calculatePrice(this.movies);
+    console.log(this.summary);
   }
+
+  
 
   onDelete(){
     this.cartService.clearCart();
-    alert('Clear Cart Success');
+    alert('Clear cart success!');
     this.movies = this.cartService.getCart()
+    this.summary = this.cartService.calculatePrice(this.movies);
   }
 
    countDown() {

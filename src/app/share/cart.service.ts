@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CartService {
 
- index = 0;
 
   constructor() { }
 
@@ -15,7 +14,6 @@ export class CartService {
       title: title,
       price: price
     }
-
     if(!cart){
       const movies = [movie]
       localStorage.setItem("cart",JSON.stringify(movies));
@@ -23,12 +21,33 @@ export class CartService {
       const movies = JSON.parse(cart)
       movies.push(movie)
       localStorage.setItem("cart",JSON.stringify(movies));
-
-      this.calculatePrice(movies);
-      
     }
   }
 
+  calculatePrice(movies){
+    const sum = {
+      total:0,
+      discount:0,
+      paid:0,
+      promotion:0
+    }
+
+    for(const movie of movies){
+      sum.total += movie.price;
+    }
+     if(movies.length > 5){
+       sum.promotion = 20;
+       sum.discount = sum.total * 0.2;
+     }else if(movies.length > 3){
+       sum.promotion = 10;
+       sum.discount = sum.total * 0.1;
+     }
+     sum.paid = sum.total - sum.discount;
+     const summary = [sum];
+     return summary;
+    }
+    
+    
   clearCart(){
     localStorage.removeItem("cart");
   }
@@ -37,14 +56,4 @@ export class CartService {
     return JSON.parse(localStorage.getItem("cart")) || [] ;
   }
 
-  calculatePrice(movie){
-    this.index = Object.keys(movie).length; 
-      if(this.index > 3 && this.index < 6){
-        console.log("discount = 10%" );
-      }else if(this.index >= 6){
-        console.log("discount = 20%");
-      }else{
-        console.log("Non discount");
-      }
-  }
 }

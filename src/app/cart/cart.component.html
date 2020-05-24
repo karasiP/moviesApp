@@ -14,9 +14,19 @@
 <div calss="cart" style="margin:0px 0px">
   <ul class="list-group list-group-flush">
     <li class="list-group-item" *ngFor="let movie of movies">
-      {{movie.title}}  ราคา : {{movie.price}} ฿
+      {{movie.title}}  
+      <span class="pull-right">ราคา : {{movie.price}} ฿ </span>
     </li>
     </ul>
+    <br>
+
+    <div style="color: white;" *ngFor="let sum of summary">
+    <ul class="list-group list-group-horizontal" style="color: black;">
+     <li class="list-group-item">Total : {{sum.total}} ฿</li>
+     <li class="list-group-item">Discount : {{sum.discount}} ฿</li>
+     <li class="list-group-item" >Paid : {{sum.paid}} ฿ </li> 
+    </ul>
+  </div><br><br>
    <button routerLink="/cart" (click)="onDelete()">clear My Cart</button> 
    <button type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="countDown()">สั่งซื้อสินค้า</button>
 </div>
