@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class CartService {
+
+ index = 0;
 
   constructor() { }
 
 
   addMovieToCart(title,price){
-    const cart = localStorage.getItem("cart");
-    console.log(cart);
+    const cart = localStorage.getItem("cart"); 
     const movie = {
       title: title,
       price: price
@@ -21,6 +23,9 @@ export class CartService {
       const movies = JSON.parse(cart)
       movies.push(movie)
       localStorage.setItem("cart",JSON.stringify(movies));
+
+      this.calculatePrice(movies);
+      
     }
   }
 
@@ -32,4 +37,14 @@ export class CartService {
     return JSON.parse(localStorage.getItem("cart")) || [] ;
   }
 
+  calculatePrice(movie){
+    this.index = Object.keys(movie).length; 
+      if(this.index > 3 && this.index < 6){
+        console.log("discount = 10%" );
+      }else if(this.index >= 6){
+        console.log("discount = 20%");
+      }else{
+        console.log("Non discount");
+      }
+  }
 }
